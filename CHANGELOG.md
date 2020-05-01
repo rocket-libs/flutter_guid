@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - Initial Release.
 
-* TODO: Describe initial release.
+* Describe initial release.
+
+## [0.1.0] - Documentation and Testing
+
+* Added tests and information in Readme.md

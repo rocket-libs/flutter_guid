@@ -1,6 +1,8 @@
 library flutter_guid;
 
+import 'package:flutter_guid/FlutterGuidError.dart';
 import 'package:uuid/uuid.dart';
+import 'package:validators/validators.dart';
 
 /// Class that emulates as closely as possible the C# Guid type.
 class Guid {
@@ -18,16 +20,29 @@ class Guid {
     _value = v;
   }
 
-  /// Generates a new UUID and returns a GUID instance with the new UUID.
+  /// Generates a new v4 UUID and returns a GUID instance with the new UUID.
   static Guid get newGuid {
-    return new Guid(Uuid().v1());
+    return new Guid(Uuid().v4());
   }
 
+  /// Checks whether a value is a valid Guid
+  /// Returns false if 'guid' is null or has an invalid value
+  /// Returns true if guid is valid
+  static bool isValid(Guid guid){
+    if(guid == null){
+      return false;
+    }else{
+      return isUUID(guid.value);
+    }
+  }
   _failIfNotValidGuid(String v) {
     if (v == null || v.isEmpty) {
       v = _defaultGuid;
     }
-    Uuid().parse(v);
+    final isInvalid = isUUID(v) == false;
+    if(isInvalid){
+      throw new FlutterGuidError("Value '$v' is not a valid UUID");
+    }
   }
 
   /// Gets the UUID value contained by the Guid object as a string.
