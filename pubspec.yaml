@@ -1,5 +1,5 @@
 name: flutter_guid
-description: A flutter package that emulates the C# type Guid.
+description: Emulates C# Guid. Generate new UUIDs, add variables of type Guid to classes.
 version: 0.0.2
 homepage: https://github.com/rocket-libs/flutter_guid
 

@@ -1,8 +1,6 @@
 import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-
-
 void main() {
   group("Guid Tests", () {
     test("Guid Equality Test Works", () {
