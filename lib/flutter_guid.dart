@@ -1,6 +1,6 @@
 library flutter_guid;
 
-import 'package:flutter_guid/FlutterGuidError.dart';
+import 'package:flutter_guid/flutter_guid_error.dart';
 import 'package:uuid/uuid.dart';
 import 'package:validators/validators.dart';
 
@@ -12,6 +12,9 @@ class Guid {
   static Guid get defaultValue => new Guid(_defaultGuid);
 
   String? _value;
+
+  /// Generates a new v4 UUID during instantiation and returns a GUID instance with the new UUID.
+  Guid.generate() : this(Guid.newGuid.value);
 
   /// Constructor, expects a valid UUID and will throw an exception if the value provided is invalid.
   Guid(String? v) {

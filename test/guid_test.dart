@@ -1,4 +1,4 @@
-import 'package:flutter_guid/FlutterGuidError.dart';
+import 'package:flutter_guid/flutter_guid_error.dart';
 import 'package:flutter_guid/flutter_guid.dart';
 import 'package:flutter_test/flutter_test.dart';
 

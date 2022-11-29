@@ -1,6 +1,6 @@
 import 'package:flutter_guid/flutter_guid.dart';
 
-import 'Employee.dart';
+import 'employee.dart';
 
 class EmployeeManager {
   static final String workShopGuidString =
