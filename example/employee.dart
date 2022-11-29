@@ -1,8 +1,11 @@
 import 'package:flutter_guid/flutter_guid.dart';
 
-class Employee{
+class Employee {
   final Guid id;
   final Guid departmentId;
 
-  Employee({this.id, this.departmentId});
+  Employee({
+    required this.id,
+    required this.departmentId,
+  });
 }
