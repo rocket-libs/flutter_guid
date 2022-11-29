@@ -6,16 +6,15 @@ import 'package:validators/validators.dart';
 
 /// Class that emulates as closely as possible the C# Guid type.
 class Guid {
-  
   static const String _defaultGuid = "00000000-0000-0000-0000-000000000000";
 
   /// The Guid whose value is the default sequence of characters that represent a 'zero-value' UUID in .Net "00000000-0000-0000-0000-000000000000"
   static Guid get defaultValue => new Guid(_defaultGuid);
 
-  String _value;
+  String? _value;
 
   /// Constructor, expects a valid UUID and will throw an exception if the value provided is invalid.
-  Guid(String v) {
+  Guid(String? v) {
     _failIfNotValidGuid(v);
     _value = v;
   }
@@ -28,29 +27,30 @@ class Guid {
   /// Checks whether a value is a valid Guid
   /// Returns false if 'guid' is null or has an invalid value
   /// Returns true if guid is valid
-  static bool isValid(Guid guid){
-    if(guid == null){
+  static bool isValid(Guid? guid) {
+    if (guid == null) {
       return false;
-    }else{
+    } else {
       return isUUID(guid.value);
     }
   }
-  _failIfNotValidGuid(String v) {
+
+  _failIfNotValidGuid(String? v) {
     if (v == null || v.isEmpty) {
       v = _defaultGuid;
     }
     final isInvalid = isUUID(v) == false;
-    if(isInvalid){
+    if (isInvalid) {
       throw new FlutterGuidError("Value '$v' is not a valid UUID");
     }
   }
 
   /// Gets the UUID value contained by the Guid object as a string.
   String get value {
-    if (_value == null || _value.isEmpty) {
+    if (_value == null || _value!.isEmpty) {
       return _defaultGuid;
     } else {
-      return _value;
+      return _value!;
     }
   }
 
@@ -59,7 +59,6 @@ class Guid {
   bool operator ==(other) {
     return this.value.toLowerCase() == other.toString().toLowerCase();
   }
-
 
   /// Returns the hashCode.
   @override
